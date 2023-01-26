@@ -1,0 +1,115 @@
+@use 'abstracts' as *;
+
+@include for-mobile-only {
+    header {
+        background: $clr-neutral-white;
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+    }
+}
+
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    padding-block: 2rem 0.5rem;
+    font-weight: 700;
+
+    & a {
+        text-decoration: none;
+        border-block: 5px solid transparent;
+        transition: all 0.3s;
+
+    }
+    
+    .primary-navigation a:hover {
+        border-bottom: 2px solid $clr-primary;
+    }
+    
+    @include for-mobile-only {
+        & .primary-navigation {
+            display: none;
+            position: relative;
+            z-index: 1;
+            background-color: $clr-primary;
+            background: $clr-neutral-white;
+            padding-block: 1rem;
+            max-width: 400px;
+            margin-inline: auto;
+            box-shadow: 0 0 50px 1px $clr-primary, 0 70vh 100vh 300px $clr-primary;
+            
+    
+            &[data-visible] {
+                display: block;
+                position: fixed;
+                top: 6rem;
+                left: 1rem;
+                right: 1rem;
+            }
+        }
+    }
+    
+    
+    & .mobile-nav__toggle {
+        display: block;
+        position: fixed;
+        border: 0;
+        background: transparent;
+        top: 2rem;
+        right: 2rem;
+        cursor: pointer;
+        width: 1.65em;
+        aspect-ratio: 1;
+        
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        
+        &[aria-expanded="false"] {
+            background-image: url("../../assets/img/icon-hamburger.svg");
+          }
+        &[aria-expanded="true"] {
+            background-image: url("../../assets/img/icon-close.svg");
+          }
+    }
+
+    & .nav-list {
+        display: grid;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    
+    .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+    @include for-desktop-only{
+        & .primary-navigation {
+            display: flex;
+            width: 100%;
+            margin-left: 15%;
+            justify-content: center;
+    
+            font-size: 0.8rem;
+        }
+    
+        & .nav-list {
+            display: flex;
+            width: 100%;
+            justify-content: space-evenly;
+        }
+        .mobile-nav__toggle {
+            display: none;
+        }
+    }
+}

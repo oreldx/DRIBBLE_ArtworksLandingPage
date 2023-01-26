@@ -1,0 +1,79 @@
+@use 'abstracts' as *;
+
+.best-feature {
+
+    margin-top: 4rem;
+    
+    .even-columns > *, & h2 {
+        margin-top: 3.5rem;
+    }
+    
+    & .even-columns {
+        @include for-desktop-only {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+        }
+    }
+
+    .right {
+        & h3 {
+            grid-area: title;
+
+            font-weight: 700;
+            font-size: 1.2rem;
+            
+        }
+
+        & p {
+            grid-area: desc;
+        }
+
+        & ol {
+            counter-reset: li;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        & li {
+            counter-increment: li;
+            display: grid;
+            grid-template-areas: 
+            "number title"
+            "number desc";
+            grid-template-columns: 1fr 4fr;
+
+            opacity: 0;
+        }
+
+        & li::before {
+            grid-area: number;
+
+            content: counter(li);
+
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 0.5rem 1rem;
+        }
+
+    }
+    
+    @keyframes FeatureFadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    
+    @for $i from 1 through 3 {
+        .feature-#{$i}.visible {
+            animation: FeatureFadeIn 0.2s forwards #{0.2s + $i*.15s};
+        }   
+    }
+}
+
+

@@ -1,0 +1,47 @@
+@use 'abstracts' as *;
+
+.newsletter {
+    margin-top: 3rem;
+    background: url('../../assets/img/03.jpg'), $clr-primary;
+    background-blend-mode: soft-light;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    // background: $clr-primary;
+
+    color: $clr-neutral-white;
+
+    & > * {
+        padding-block: 2rem;
+        text-align: center;
+    }
+
+    & p {
+        opacity: 0.8;
+        font-size: 0.8rem;
+    }
+    
+    & .container > *:not(:first-child) {
+        margin-top: 1rem;
+    }
+}
+
+.newsletter-form {
+    background-color: $clr-neutral-white;
+    border-radius: 0.7rem;
+    padding: 0.2rem;
+    max-width: 600px;
+    font-size: 0.8rem;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &  input {
+        margin-left: 10px;
+        width: 100%;
+        outline: none;
+        border: 0;
+    }
+}

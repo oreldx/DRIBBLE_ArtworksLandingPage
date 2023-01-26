@@ -1,0 +1,60 @@
+@use 'abstracts' as *;
+
+/* General styling */
+
+body {
+    color: $clr-primary;
+    font-family: 'Poppins';
+}
+
+a {
+    color: $clr-primary;
+}
+
+.container {
+    --max-width: 1110px;
+    --margin: 2rem;
+
+    max-width: min(var(--max-width), calc(100vw - var(--margin)*2));
+    margin-inline: auto;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.intern-link {
+    display: block;
+    font-weight: 700;
+    color: $clr-primary;
+    text-align: center;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    & a {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+
+        & img {
+            transform: translateX(0);
+            transition: all 0.3s;
+        }
+
+        &:hover img {
+            transform: translateX(10px);
+        }
+    }
+
+    & img {
+        height: 1.5rem;   
+        display: inline;
+        margin-inline-start: 0.5rem;
+    }
+
+
+}

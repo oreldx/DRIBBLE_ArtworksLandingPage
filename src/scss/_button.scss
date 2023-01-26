@@ -1,0 +1,23 @@
+@use 'abstracts' as *;
+
+.button {
+    background: $clr-primary;
+    border-radius: 0.8rem;
+    color: $clr-neutral-white;
+    border: none;
+    padding: 0.5rem 1.8rem;
+    border: solid 4px $clr-primary;
+    cursor: pointer;
+    transition: all 0.4s;
+
+    &:hover {
+        background-color: $clr-neutral-white;
+        color: $clr-primary;
+
+    }
+
+    &--inversed {
+        background: none;
+        color: $clr-primary;
+    }
+}

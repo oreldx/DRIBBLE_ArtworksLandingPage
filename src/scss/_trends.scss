@@ -1,0 +1,112 @@
+@use 'abstracts' as *;
+
+.trends {
+    margin-top: 3rem;
+
+    & p {
+        opacity: 0.7;
+        font-size: 0.9rem;
+        max-width: 60ch;
+    }
+
+    & h2 {
+        text-align: left;
+    }
+
+    & .container > *:not(:first-child) {
+        margin-top: 1.5rem;
+    }
+
+    position: relative;
+}
+
+.gallery-show {
+
+    margin-top: 2rem;
+    // margin-left: max(calc((100vw - 1110px)/2), 2rem);
+    
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+
+
+    scrollbar-width: thin;
+    scrollbar-color: $clr-primary $clr-neutral-grey;
+
+    &::-webkit-scrollbar {
+        height: 0.8rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $clr-neutral-grey;
+      }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $clr-primary;
+        border: 2px solid $clr-neutral-grey;
+      }
+
+    & .control {
+        position: absolute;
+        bottom: calc(0.8rem - 1px);
+        width: clamp(60px, 7%, 120px);
+        height: calc(210px * 2 + 1rem);
+        -webkit-backdrop-filter: blur(15px);
+        backdrop-filter: blur(15px);
+        
+        & span {
+            position: absolute;
+            top: 50%;
+            
+            display: inline;
+            border-style: solid;
+            border-color: $clr-neutral-white;
+            border-width: 0.5em 0.5em 0 0;
+            height: 30px;
+            width: 30px;
+        }
+    }
+    
+    & .control--left {
+        display: none;
+        left: max(calc((100vw - 1127px) / 2), 2rem);
+        
+        & span {
+            left: 60%;
+            transform: translate(-50%, -50%) rotate(-135deg);
+        }
+    }
+    & .control--right {
+        right: max(calc((100vw - 1127px) / 2), 2rem);
+        
+        & span {
+            left: 40%;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+    }
+    
+    & .row {
+        width: 1620px;
+        // height: 217px;
+        display: flex;
+        gap: 1rem;
+
+        &:first-child {
+            margin-bottom: 1rem;
+        }
+    }
+
+    & .thumbnail {
+        margin: 0;
+        // height: 100%;
+        // display: inline;
+
+        img {
+            height: 210px;
+            // display: inline;
+            // max-width: 20%;
+            object-fit: cover;
+        }
+
+    }    
+}

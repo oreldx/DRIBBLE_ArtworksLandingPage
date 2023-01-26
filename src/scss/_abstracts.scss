@@ -1,0 +1,17 @@
+/* Variables | Fonts imort | Mixins */
+
+$clr-primary: hsl(207, 100%, 7%);
+$clr-neutral-white: hsl(0, 0%, 100%);
+$clr-neutral-grey: hsl(0, 0%, 92%);
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+
+@mixin for-mobile-only {
+    @media (max-width: 550px) { @content; }
+  }
+
+@mixin for-desktop-only {
+  @media (min-width: 550px) { @content; }
+  }
